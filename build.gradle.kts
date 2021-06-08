@@ -17,5 +17,5 @@ val buildTypescript by tasks.creating(YarnTask::class) {
     inputs.file("tsconfig.json")
     outputs.files(fileTree("build"))
 
-    setArgs(listOf("build"))
+    args = listOf("build")
 }

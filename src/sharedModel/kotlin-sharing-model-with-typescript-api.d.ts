@@ -1,3 +1,4 @@
+/* eslint-disable */
 type Nullable<T> = T | null | undefined
 export namespace com.github.krzema12.api {
     class Cat {

@@ -1,8 +1,8 @@
 This is a work-in-progress of an example of generating TypeScript definitions out of Kotlin data classes.
 
-Steps:
+Steps to generate the typings:
 
-1. Build the project:
+1. Build the API project:
    ```
    ./gradlew :api:build
    ```
@@ -32,4 +32,25 @@ Steps:
    }
    export as namespace kotlin_sharing_model_with_typescript_api;
    ```
-1. TODO consume it in the TypeScript module
+
+Steps to reproduce the TypeScript issue using already generated typings from Kotlin:
+
+1. Build the frontend project:
+   ```
+   > yarn build
+   ```
+1. The problem is getting this issue:
+   ```
+   Failed to compile.
+
+   ./src/index.tsx
+   SyntaxError: /home/piotr/repos/kotlin-sharing-model-with-typescript/src/index.tsx: `import =` is not supported by @babel/plugin-transform-typescript
+   Please consider using `import <moduleName> from '<moduleName>';` alongside Typescript's --allowSyntheticDefaultImports option.
+   1 | import { com } from './sharedModel/kotlin-sharing-model-with-typescript-api';
+   > 2 | import Cat = com.github.krzema12.api.Cat;
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   3 |
+   4 | const cat = new Cat('Felix', 12);
+   5 | console.log(cat.age)
+
+   ```
