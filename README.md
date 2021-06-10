@@ -35,9 +35,9 @@ Steps to generate the typings:
 
 Steps to reproduce the TypeScript issue using already generated typings from Kotlin:
 
-1. Build the frontend project:
+1. Install dependencies and build the frontend project:
    ```
-   > yarn build
+   > yarn install && yarn build
    ```
 1. The problem is getting this issue:
    ```
